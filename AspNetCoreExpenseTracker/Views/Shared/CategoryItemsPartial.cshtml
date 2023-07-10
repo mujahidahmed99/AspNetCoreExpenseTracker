@@ -1,0 +1,11 @@
+@model List<Category>
+
+@foreach (var category in Model)
+{
+    <div class="row hover-item py-3">
+        <div class="col justify-content-center">
+            <span class="fs-6 category-name">@category.Name</span>
+            <input type="hidden" class="category-id" value=@category.Id>
+        </div>
+    </div>
+}

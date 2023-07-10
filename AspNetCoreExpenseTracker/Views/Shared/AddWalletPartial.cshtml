@@ -1,0 +1,46 @@
+@model Wallet
+
+<form asp-action="AddWallet" method="POST" class="m-3 form-validation" style="height: 100%;">
+    <div class="d-flex flex-column gap-3 mb-4" style="height: 75%;">
+        <div class="row">
+            <div class="col">
+                <div class="form-floating">
+                    <input asp-for="WalletName" type="text" class="form-control validate-input" id="floatingInputGrid" placeholder="Your Wallet Name?" required>
+                    <label for="floatingInputGrid">Wallet Name</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="d-flex flex-column border rounded pt-1 pb-2 px-3" id="SelectCurrency" style="height: 100%; cursor:pointer;">
+                    <span class="small-text text-secondary">Currency</span>
+                    <div class="d-flex justify-content-between">
+                        <span class="fs-6 currency-name">select currency</span>
+                        <span class="material-symbols-outlined fs-6" style="align-self: center;">arrow_forward_ios</span>
+                        <input asp-for="CurrencyId" type="hidden" class="form-control validate-input" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input asp-for="Amount" type="text" required class="form-control validate-input amount-input" id="floatingInputGrid" placeholder="0" value="0">
+                    <label for="floatingInputGrid">Amount</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input asp-for="ExcludeFromTotal" class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Excluded from Total
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="text-align: end;">
+            <button type="button" class="btn btn-secondary" style="width: 100px;">Cancel</button>
+            <button type="submit" class="btn btn-success submit-form" style="width: 100px;" disabled>Save</button>
+        </div>
+    </div>
+</form>

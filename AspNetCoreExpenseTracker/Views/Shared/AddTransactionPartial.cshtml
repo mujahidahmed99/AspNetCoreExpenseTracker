@@ -1,0 +1,61 @@
+@model Wallet
+
+<div class="d-flex container flex-column my-5 border rounded popup-display bg-white">
+    <p class="fs-5 m-3 border-bottom">Add transaction</p>
+    <form class="m-3 form-validation" style="height: 100%;">
+        <div class="d-flex flex-column gap-3 mb-4" style="height: 75%;">
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex flex-column border rounded pt-1 pb-2 px-3" id="SelectWallet" style="height: 100%; cursor:pointer;">
+                        <span class="small-text text-secondary">Wallet</span>
+                        <div class="d-flex justify-content-between">
+                            <span class="fs-6">@Model.WalletName</span>
+                            <span class="material-symbols-outlined fs-6" style="align-self: center;">arrow_forward_ios</span>
+                        </div>
+                        <input type="hidden" value=@Model.Id id="wallet-id" class="form-control validate-input">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex flex-column border rounded pt-1 pb-2 px-3" id="SelectCategory" style="height: 100%; cursor:pointer;">
+                        <span class="small-text text-secondary">Category</span>
+                        <div class="d-flex justify-content-between">
+                            <span class="fs-6 category-name">Select a Category</span>
+                            <span class="material-symbols-outlined fs-6" style="align-self: center;">arrow_forward_ios</span>
+                        </div>
+                        <input type="hidden" value="" id="CategoryId" class="form-control validate-input">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <input type="number" class="form-control validate-input amount-input" id="Amount" placeholder="0" value="0">
+                        <label for="Amount">Amount</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="d-flex flex-column border rounded pt-1 pb-2 px-3" id="SelectDate" style="height: 100%; cursor:pointer;">
+                        <span class="small-text text-secondary">Date</span>
+                        <div class="d-flex justify-content-between">
+                            <span class="fs-6 display-date">@DateTime.Now.ToString("dd/MM/yyyy")</span>
+                            <span class="material-symbols-outlined fs-6" style="align-self: center;">arrow_forward_ios</span>
+                        </div>
+                        <input type="hidden" value=@DateTime.Now.ToString("dd/MM/yyyy") id="DateField" class="form-control validate-input">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="Comments"></textarea>
+                        <label for="Comments">Comments</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="text-align: end;">
+                <button type="button" class="btn btn-secondary close-popup" style="width: 100px;">Cancel</button>
+                <button type="button" class="btn btn-success submit-form" style="width: 100px;" disabled>Save</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,141 @@
+﻿@model TransactionViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["WalletName"] = Model.Wallet.WalletName;
+}
+
+@section Scripts {
+    <script src="~/js/transactions.js"></script>
+}
+
+
+@await Html.PartialAsync("NavbarPartial")
+<div class="d-flex flex-column container" style="height: fit-content;">
+    <div class="shadow mb-5 border rounded">
+        <div class="d-flex flex-column p-3 mb-3 bg-white">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Last Month</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">This Month</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Future</a>
+                </li>
+            </ul>
+            <br>
+            <ul class="list-group">
+                <li class="list-group-item border-0 d-flex justify-content-between">
+                    <span>Inflow</span>
+                    <span class="text-primary">@Model.Wallet.Amount.ToString("C")</span>
+                </li>
+                <li class="list-group-item border-0 d-flex justify-content-between">
+                    <span>Outflow</span>
+                    <span class="text-danger">£ 0</span>
+                </li>
+            </ul>
+            <br>
+            <span class="p-3 border-top" style="text-align: end;">+£ 1,000.00</span>
+        </div>
+        <div class="d-flex flex-column p-3 mt-3 bg-white">
+            <ul class="list-group">
+                <li class="list-group-item border-0 d-flex justify-content-between">
+                    <div class="d-flex flex-column">
+                        <span class="fs-5">Transaction</span>
+                        <span>Transaction</span>
+                    </div>
+                    <span style="align-self: center;">£1000</span>
+                </li>
+                <li class="list-group-item border-0 d-flex justify-content-between">
+                    <span>Tuesday, June 2023</span>
+                    <span>-£1000</span>
+                </li>
+                <li class="list-group-item border-0 d-flex justify-content-between">
+                    <div class="d-flex flex-column">
+                        <span class="fs-5">Transaction</span>
+                        <span>Transaction</span>
+                    </div>
+                    <span style="align-self: center;">£1000</span>
+                </li>
+                <li class="list-group-item border-0 d-flex justify-content-between">
+                    <span>Monday, June 2023</span>
+                    <span>-£1000</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="overlay py-5 transaction-overlay">
+    @await Html.PartialAsync("AddTransactionPartial", Model.Wallet)
+</div>
+
+<div class="overlay select-category-overlay">
+    <div class="d-flex container flex-column px-0 my-5 border rounded sm-popup-long-display bg-white" style="width: 500px;">
+        <div class="d-flex flex-column container pt-3 gap-3 px-0">
+            <div class="d-flex align-items-center gap-3 px-4">
+                <span class="material-symbols-outlined close-popup">
+                    close
+                </span>
+                <span class="fs-5" style="margin-right: 2rem;">Select Category</span>
+            </div>
+            <div class="mx-auto">
+                <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="d-flex justify-content-center border-bottom pb-1 category-filter">
+                <div class="px-2 hover-item" data-tab="1">
+                    <span>DEBT/LOAN</span>
+                </div>
+                <div class="px-2 hover-item text-success" data-tab="2">
+                    <span>EXPENSE</span>
+                </div>
+                <div class="px-2 hover-item" data-tab="3">
+                    <span>INCOME</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 px-5 category-items overflow-auto" style="display: none;" data-tab="1">
+            @await Html.PartialAsync("CategoryItemsPartial", Model.DebtsOrLoans)
+        </div>
+        <div class="p-3 px-5 category-items overflow-auto" style="display: block;" data-tab="2">
+            @await Html.PartialAsync("CategoryItemsPartial", Model.Expenses)
+        </div>
+        <div class="p-3 px-5 category-items overflow-auto" style="display: none;" data-tab="3">
+            @await Html.PartialAsync("CategoryItemsPartial", Model.Incomes)
+        </div>
+    </div>
+</div>
+<div class="overlay py-5 select-wallet-overlay">
+    <div class="d-flex container flex-column px-0 my-5 border rounded sm-popup-long-display bg-white" style="width: 500px;">
+        <div class="d-flex flex-column container pt-3 gap-3 px-0 border-bottom">
+            <div class="d-flex align-items-center gap-3 px-4 pb-3">
+                <span class="material-symbols-outlined close-popup">
+                    close
+                </span>
+                <span class="fs-5" style="margin-right: 2rem;">Select Wallet</span>
+            </div>
+        </div>
+        <span class="small-text px-4 py-2 text-secondary">Included in Total</span>
+        <div class="px-4 wallet-items overflow-auto">
+            <div class="row py-2 active-item hover-item">
+                <div class="col-10 justify-content-center">
+                    <span class="fs-6 wallet-name">@Model.Wallet.WalletName</span>
+                    <br>
+                    <span class="small-text wallet-amount">@Model.Wallet.Amount.ToString("C")</span>
+                    <input type="hidden" class="wallet-id" value=@Model.Wallet.Id>
+                </div>
+                <div class="col align-self-center text-center">
+                    <span class="material-symbols-outlined text-success">
+                        done
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overlay py-5 select-date-overlay">
+    <div class="d-flex container">
+        <div class="mx-auto bg-white" id="datepicker"></div>
+    </div>
+</div>

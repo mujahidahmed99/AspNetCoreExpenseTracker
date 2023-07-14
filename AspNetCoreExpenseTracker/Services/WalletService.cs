@@ -26,6 +26,7 @@ public class WalletService : IWalletService
     public async Task<bool> AddWalletAsync(Wallet newWallet)
     {
         newWallet.Id = Guid.NewGuid();
+
         _context.Wallets.Add(newWallet);
 
         var saveResult = await _context.SaveChangesAsync();
@@ -34,6 +35,8 @@ public class WalletService : IWalletService
 
     public async Task<Wallet> GetWalletByIdAsync(Guid id)
     {
-        return await _context.Wallets.Where(x => x.Id == id).FirstOrDefaultAsync();
+        var wallet = await _context.Wallets.Where(x => x.Id == id).FirstOrDefaultAsync();
+
+        return wallet;
     }
 }

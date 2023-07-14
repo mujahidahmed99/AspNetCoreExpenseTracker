@@ -22,4 +22,11 @@ public class CategoryService : ICategoryService
         var categories = await _context.Categories.ToListAsync();
         return categories;
     }
+
+    public async Task<Category> GetCategoryByIdAsync(int id)
+    {
+        var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+
+        return category;
+    }
 }

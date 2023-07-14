@@ -61,6 +61,26 @@ $(document).ready(function(){
     $('.date-cancel').on('click', function(e) {
         $('.select-date-overlay').hide();
     });
+
+    $('#TransactionForm').submit(function(e)
+    {
+        debugger;
+        e.preventDefault();
+        var formData = $(this).serialize();
+        console.log(formData);
+
+        $.ajax({
+            type: "POST",
+            url: "home/AddTransaction",
+            data: formData,
+            success: function (response) {
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
 });
 
 function displayTab(tabValue) {

@@ -8,4 +8,6 @@ namespace AspNetCoreExpenseTracker.Services;
 public interface ICurrencyService
 {
     Task<List<Currency>> GetCurrenciesAsync();
+
+    Task<Currency> GetCurrencyByIdAsync(int id);
 }

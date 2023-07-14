@@ -8,4 +8,6 @@ namespace AspNetCoreExpenseTracker.Services;
 public interface ICategoryService
 {
     Task<List<Category>> GetCategoriesAsync();
+
+    Task<Category> GetCategoryByIdAsync(int id);
 }

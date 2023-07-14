@@ -28,7 +28,7 @@
 <div class="overlay py-5 wallet-overlay" data-walletcount="@Model.Wallets.Count()">
     <div class="d-flex container flex-column my-5 border rounded sm-popup-display bg-white">
         <p class="fs-5 m-3 border-bottom">Add a wallet first!</p>
-        @await Html.PartialAsync("AddWalletPartial", new Wallet())
+        @await Html.PartialAsync("AddWalletPartial", new CreateWalletViewModel())
     </div>
 </div>
 <div class="overlay py-5 currency-overlay">

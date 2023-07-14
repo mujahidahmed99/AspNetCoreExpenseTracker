@@ -22,4 +22,11 @@ public class CurrencyService : ICurrencyService
         var currencies = await _context.Currencies.ToListAsync();
         return currencies;
     }
+
+    public async Task<Currency> GetCurrencyByIdAsync(int id)
+    {
+        var currency = await _context.Currencies.FirstOrDefaultAsync(x => x.Id == id);
+
+        return currency;
+    }
 }

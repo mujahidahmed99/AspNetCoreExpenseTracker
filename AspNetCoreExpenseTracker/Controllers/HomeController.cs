@@ -37,6 +37,45 @@ public class HomeController : Controller
         return View(model);
     }
 
+    [ValidateAntiForgeryToken]
+    [HttpPost]
+    public async Task<ActionResult> AddTransaction(CreateTransactionViewModel newTransaction)
+    {
+        if(!ModelState.IsValid)
+        {
+            return BadRequest("Invalid Input");
+        }
+
+        var transaction = new Transaction
+        {
+            WalletId = newTransaction.WalletId,
+            CategoryId = newTransaction.CategoryId,
+            Amount = newTransaction.Amount,
+            Date = newTransaction.Date,
+            Comments = newTransaction.Comments
+        };
+
+        var category = await _categoryService.GetCategoryByIdAsync(newTransaction.CategoryId);
+        var wallet = await _walletService.GetWalletByIdAsync(newTransaction.WalletId);
+
+        if(category == null || wallet == null)
+        {
+            return BadRequest("Could not create objects.");
+        }
+
+        transaction.Category = category;
+        transaction.Wallet = wallet;
+
+        var addedTransaction = await _transactionService.AddTransactionAsync(transaction);
+
+        if(addedTransaction == null)
+        {
+            return BadRequest("Could not add transaction.");
+        }
+
+        return Json(addedTransaction);
+    }
+
     public IActionResult Privacy()
     {
         return View();

@@ -68,7 +68,13 @@
     </div>
 </div>
 <div class="overlay py-5 transaction-overlay">
-    @await Html.PartialAsync("AddTransactionPartial", Model.Wallet)
+    @{
+        var createTransactionViewModel = new CreateTransactionViewModel
+        {
+            WalletId = Model.Wallet.Id
+        };
+    }
+    @await Html.PartialAsync("AddTransactionPartial", createTransactionViewModel)
 </div>
 
 <div class="overlay select-category-overlay">

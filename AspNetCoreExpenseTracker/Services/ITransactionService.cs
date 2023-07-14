@@ -9,5 +9,5 @@ public interface ITransactionService
 {
     Task<List<Transaction>> GetTransactionsAsync();
 
-    Task<bool> AddTransactionAsync(Transaction newTransaction);
+    Task<Transaction> AddTransactionAsync(Transaction newTransaction);
 }

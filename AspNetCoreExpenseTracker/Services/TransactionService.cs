@@ -15,12 +15,26 @@ public class TransactionService : ITransactionService
     
     public async Task<List<Transaction>> GetTransactionsAsync()
     {
-        var transactions = await _context.Transactions.ToListAsync();
+        var transactions = await _context.Transactions
+            .Include(x => x.Category)
+            .Include(x => x.Wallet)
+            .ToListAsync();
+
         return transactions;
     }
 
-    public async Task<bool> AddTransactionAsync(Transaction newTransaction)
+    public async Task<Transaction> AddTransactionAsync(Transaction newTransaction)
     {
-        return false;
+        _context.Transactions.Add(newTransaction);
+        await _context.SaveChangesAsync();
+
+        var addedTransaction = await _context.Transactions
+            .Include(x => x.Category)
+                .ThenInclude(x => x.FinancialStatement)
+            .Include(x => x.Wallet)
+                .ThenInclude(x => x.Currency)
+            .FirstOrDefaultAsync(x => x.Id == newTransaction.Id);
+
+        return addedTransaction;
     }
 }

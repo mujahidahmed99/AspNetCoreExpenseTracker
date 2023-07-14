@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker.csproj": {}
+    "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\aspnetcoreexpensetracker\\AspNetCoreExpenseTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker.csproj": {
+    "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\aspnetcoreexpensetracker\\AspNetCoreExpenseTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker.csproj",
+        "projectUniqueName": "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\aspnetcoreexpensetracker\\AspNetCoreExpenseTracker.csproj",
         "projectName": "AspNetCoreExpenseTracker",
-        "projectPath": "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker.csproj",
+        "projectPath": "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\aspnetcoreexpensetracker\\AspNetCoreExpenseTracker.csproj",
         "packagesPath": "C:\\Users\\Mujahid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker\\obj\\",
+        "outputPath": "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\aspnetcoreexpensetracker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mujahid\\AppData\\Roaming\\NuGet\\NuGet.Config",

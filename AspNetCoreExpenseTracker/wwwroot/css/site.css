@@ -15,16 +15,12 @@ html {
 
 body {
   height: 100vh;
+  overflow-y: auto;
 }
 
 main {
   display: flex;
   flex-wrap: nowrap;
-  height: 100vh;
-  height: -webkit-fill-available;
-  max-height: 100vh;
-  overflow-x: auto;
-  overflow-y: hidden;
 }
 
 .top-banner {
@@ -32,6 +28,7 @@ main {
   top: 0;
   left: 5rem;
   width: calc(100% - 5rem);
+  z-index: 1;
 }
 
 .overlay {
@@ -47,7 +44,7 @@ main {
 }
 
 .transaction-overlay {
-  display: block;
+  display: none;
 }
 
 .select-category-overlay {

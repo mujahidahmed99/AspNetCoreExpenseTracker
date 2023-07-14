@@ -10,4 +10,6 @@ public interface ITransactionService
     Task<List<Transaction>> GetTransactionsAsync();
 
     Task<Transaction> AddTransactionAsync(Transaction newTransaction);
+
+    Task<List<GroupedTransactionsViewModel>> GroupByCategoryAsync();
 }

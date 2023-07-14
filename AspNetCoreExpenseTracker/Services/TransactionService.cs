@@ -37,4 +37,21 @@ public class TransactionService : ITransactionService
 
         return addedTransaction;
     }
+
+    public async Task<List<GroupedTransactionsViewModel>> GroupByCategoryAsync()
+    {
+        var groupedTransactions = await _context.Transactions
+            .Include(x => x.Category)
+            .Include(x => x.Wallet)
+            .GroupBy(x => x.CategoryId)
+            .Select(g => new GroupedTransactionsViewModel
+            {
+                CategoryName = g.First().Category.Name,
+                TotalAmount = g.Sum(t => t.Amount),
+                Transactions = g.ToList()
+            })
+            .ToListAsync();
+
+        return(groupedTransactions);
+    }
 }

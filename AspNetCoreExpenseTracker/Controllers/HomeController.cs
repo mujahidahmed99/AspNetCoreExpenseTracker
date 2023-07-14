@@ -22,13 +22,13 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         var wallet = await _walletService.GetWalletByIdAsync(new Guid("2434F5D5-53B6-4E22-8885-018968ED148D"));
-        var transactions = await _transactionService.GetTransactionsAsync();
+        var transactions = await _transactionService.GroupByCategoryAsync();
         var categories = await _categoryService.GetCategoriesAsync();
 
         var model = new TransactionViewModel()
         {
             Wallet = wallet,
-            Transactions = transactions,
+            GroupedTransactions = transactions,
             DebtsOrLoans = categories.Where(x => x.FinancialStatementId == (int)FinancialStatementId.DebtsOrLoans).ToList(),
             Expenses = categories.Where(x => x.FinancialStatementId == (int)FinancialStatementId.Expense).ToList(),
             Incomes = categories.Where(x => x.FinancialStatementId == (int)FinancialStatementId.Income).ToList()

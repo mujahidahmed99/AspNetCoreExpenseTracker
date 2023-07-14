@@ -4,7 +4,7 @@ public class TransactionViewModel
 {
     public Wallet Wallet { get; set; }
 
-    public List<Transaction> Transactions { get; set; }
+    public List<GroupedTransactionsViewModel> GroupedTransactions { get; set; }
     
     public List<Category> DebtsOrLoans { get; set; } = new List<Category>();
 

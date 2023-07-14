@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "INmP+JBKWqPiHPpRtU0ca63lD/GmlCLzA9tL/liXkm2nNsdboOm6SSpcPwsl4m6w+myXZIEZSD4PwoMjnBSWag==",
+  "dgSpecHash": "JtKcU6+jehgRu+R+TTxyR+pZv69kDK4q97jrrk/PxJQum30yrGQiadNg09Zpr0KLQDq6o9LkZTBcvW5INrLdpQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker\\AspNetCoreExpenseTracker.csproj",
+  "projectFilePath": "C:\\Users\\Mujahid\\Documents\\Development\\AspNetCoreExpenseTracker\\aspnetcoreexpensetracker\\AspNetCoreExpenseTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mujahid\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Mujahid\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.7\\microsoft.aspnetcore.cryptography.internal.6.0.7.nupkg.sha512",

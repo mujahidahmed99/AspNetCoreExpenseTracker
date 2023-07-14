@@ -10,10 +10,13 @@ public class Wallet
     [Required]
     public string WalletName { get; set; }
 
+    [Required]
     public int CurrencyId { get; set; }
     
+    [Required]
     public decimal Amount { get; set; }
     
+    [Required]
     public bool ExcludeFromTotal { get; set; }
 
     public Currency Currency { get; set; }

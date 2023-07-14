@@ -39,27 +39,32 @@
                 <span class="border-top mx-3">+£ 1,000.00</span>
             </div>
         </div>
-        @foreach (var group in Model.GroupedTransactions)
-        {
-            <div class="d-flex flex-column mt-4 bg-white py-2">
-                <ul class="list-group">
-                    <li class="list-group-item border-0 d-flex justify-content-between border-bottom px-4">
-                        <div class="d-flex flex-column">
-                            <span class="fs-5">@group.CategoryName</span>
-                            <span>Transaction</span>
-                        </div>
-                        <span style="align-self: center;">@group.TotalAmount.ToString("C")</span>
-                    </li>
-                    @foreach (var transaction in group.Transactions)
-                    {
-                        <li class="list-group-item border-0 d-flex justify-content-between py-3 px-4">
-                            <span>@transaction.Date.ToString("dd dddd, MMMM yyyy")</span>
-                            <span>@transaction.Amount.ToString("C")</span>
-                        </li>   
-                    }
-                </ul>
-            </div>   
-        }
+        <div id="TransactionContainer">
+            @foreach (var group in Model.GroupedTransactions)
+            {
+                <div class="d-flex flex-column mt-4 bg-white py-2">
+                    <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex justify-content-between border-bottom px-4">
+                            <div class="d-flex flex-column">
+                                <span class="fs-5">@group.CategoryName</span>
+                                <span>@group.Transactions.Count()</span>
+                            </div>
+                            <span style="align-self: center;">@group.TotalAmount.ToString("C")</span>
+                        </li>
+                        @foreach (var transaction in group.Transactions)
+                        {
+                            <li class="list-group-item border-0 d-flex justify-content-between py-3 px-4">
+                                <span>@transaction.Date.ToString("dd dddd, MMMM yyyy")</span>
+                                @{
+                                    string amountDisplay = transaction.Amount >= 0 ? "+" + transaction.Amount.ToString("C") : "-" + transaction.Amount.ToString("C");
+                                }
+                                <span class="amount">@amountDisplay</span>
+                            </li>   
+                        }
+                    </ul>
+                </div>   
+            }
+        </div>
     </div>
 </div>
 <div class="overlay py-5 transaction-overlay">

@@ -76,6 +76,13 @@ public class HomeController : Controller
         return Json(addedTransaction);
     }
 
+    [HttpGet]
+    public async Task<ActionResult> GetAllTransactions()
+    {
+        var transactions = await _transactionService.GroupByCategoryAsync();
+
+        return Json(transactions);
+    }
     public IActionResult Privacy()
     {
         return View();

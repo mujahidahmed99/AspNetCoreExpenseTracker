@@ -81,6 +81,8 @@ $(document).ready(function(){
             }
         });
     });
+
+    getAllTransactions();
 });
 
 function displayTab(tabValue) {
@@ -93,4 +95,41 @@ function displayTab(tabValue) {
     if(container) {
         $(container).show();
     }
+}
+
+function getAllTransactions() {
+    $.ajax({
+        type: "GET",
+        url: "home/GetAllTransactions",
+        success: function(data) {
+            var html = '';
+            for(var i = 0; i < data.length; i++) {
+                var group = data[i];
+                console.log(group);
+                html += '<div class="d-flex flex-column mt-4 bg-white py-2">';
+                html += '<ul class="list-group">';
+                html += '<li class="list-group-item border-0 d-flex justify-content-between border-bottom px-4">';
+                html += '<div class="d-flex flex-column">';
+                html += '<span class="fs-5">' + group.categoryName + '</span>';
+                html += '<span>' + group.transactions.length + ' transactions</span>';
+                html += '</div>';
+                var totalAmount = group.totalAmount >= 0 ? '+' + group.totalAmount : group.totalAmount;
+                html += '<span style="align-self: center;" class="amount">' + totalAmount.toLocaleString(undefined, { style: 'currency', currency: 'GBP' }) + '</span>';
+                html += '</li>';
+                for(var j = 0; j < group.transactions.length; j++)
+                {
+                    var transaction = group.transactions[j];
+                    html += '<li class="list-group-item border-0 d-flex justify-content-between py-3 px-4">';
+                    html += '<span>' + moment(transaction.date).format("DD dddd, MMMM YYYY") + '</span>';
+                    var amount = transaction.amount >= 0 ? '+' + transaction.amount : transaction.amount;
+                    html += '<span class="amount">' + amount.toLocaleString(undefined, { style: 'currency', currency: 'GBP' }) + '</span>';
+                    html += '</li>';
+                }
+            html += '</ul>';
+            html += '</div>';
+
+            $('#TransactionContainer').html(html);
+            }
+        }
+    });
 }

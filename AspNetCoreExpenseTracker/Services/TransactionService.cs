@@ -1,6 +1,7 @@
 using AspNetCoreExpenseTracker.Models;
 using AspNetCoreExpenseTracker.Data;
 using Microsoft.EntityFrameworkCore;
+using AspNetCoreExpenseTracker.Enums;
 
 namespace AspNetCoreExpenseTracker.Services;
 
@@ -17,7 +18,9 @@ public class TransactionService : ITransactionService
     {
         var transactions = await _context.Transactions
             .Include(x => x.Category)
+                .ThenInclude(x => x.FinancialStatement)
             .Include(x => x.Wallet)
+                .ThenInclude(x => x.Currency)
             .ToListAsync();
 
         return transactions;
@@ -25,6 +28,11 @@ public class TransactionService : ITransactionService
 
     public async Task<Transaction> AddTransactionAsync(Transaction newTransaction)
     {
+        if(newTransaction.Category.FinancialStatementId == (int)FinancialStatementId.Expense)
+        {
+            newTransaction.Amount = -newTransaction.Amount;
+        }
+        
         _context.Transactions.Add(newTransaction);
         await _context.SaveChangesAsync();
 
@@ -42,7 +50,9 @@ public class TransactionService : ITransactionService
     {
         var groupedTransactions = await _context.Transactions
             .Include(x => x.Category)
+                .ThenInclude(x => x.FinancialStatement)
             .Include(x => x.Wallet)
+                .ThenInclude(x => x.Currency)
             .GroupBy(x => x.CategoryId)
             .Select(g => new GroupedTransactionsViewModel
             {

@@ -11,7 +11,7 @@
 
 
 @await Html.PartialAsync("NavbarPartial")
-<div class="d-flex flex-column container" style="height: fit-content; width: 700px">
+<div class="d-flex flex-column display-content flex-wrap">
     <div class="shadow mb-5 border rounded">
         <div class="d-flex flex-column mb-4 bg-white">
             <ul class="nav nav-tabs pt-3 px-2 justify-content-center">
@@ -47,16 +47,19 @@
                         <li class="list-group-item border-0 d-flex justify-content-between border-bottom px-4">
                             <div class="d-flex flex-column">
                                 <span class="fs-5">@group.CategoryName</span>
-                                <span>@group.Transactions.Count()</span>
+                                <span>@group.Transactions.Count() transactions</span>
                             </div>
-                            <span style="align-self: center;">@group.TotalAmount.ToString("C")</span>
+                            @{
+                                    string totalAmountDisplay = group.TotalAmount >= 0 ? "+" + group.TotalAmount.ToString("C") : group.TotalAmount.ToString("C");
+                                }
+                            <span style="align-self: center;">@totalAmountDisplay</span>
                         </li>
                         @foreach (var transaction in group.Transactions)
                         {
                             <li class="list-group-item border-0 d-flex justify-content-between py-3 px-4">
                                 <span>@transaction.Date.ToString("dd dddd, MMMM yyyy")</span>
                                 @{
-                                    string amountDisplay = transaction.Amount >= 0 ? "+" + transaction.Amount.ToString("C") : "-" + transaction.Amount.ToString("C");
+                                    string amountDisplay = transaction.Amount >= 0 ? "+" + transaction.Amount.ToString("C") : transaction.Amount.ToString("C");
                                 }
                                 <span class="amount">@amountDisplay</span>
                             </li>   
@@ -67,81 +70,129 @@
         </div>
     </div>
 </div>
-<div class="overlay py-5 transaction-overlay">
-    @{
-        var createTransactionViewModel = new CreateTransactionViewModel
-        {
-            WalletId = Model.Wallet.Id
-        };
-    }
-    @await Html.PartialAsync("AddTransactionPartial", createTransactionViewModel)
+<div class="d-flex flex-column bg-white sm-card flex-wrap py-3 gap-3">
+    <div class="d-flex border-bottom align-items-center">
+        <div class="col-2 px-2 text-center">
+            <span class="material-symbols-outlined close-popup">
+                close
+            </span>
+        </div>
+        <div class="col-6">
+            <span class="fs-4">
+                Transaction details
+            </span>
+            </div>
+        <div class="col-4 d-flex">
+            <button class="btn fw-bold text-danger delete-transaction-btn" style="width: 45%;">
+                Delete
+            </button>
+            <button class="btn fw-bold text-success edit-transaction-btn" style="width: 45%;">
+                Edit
+            </button>
+        </div>
+    </div>
+    <div class="d-flex align-items-baseline">
+        <div class="col-2 px-2 text-center">
+            <span class="material-symbols-outlined">
+                paid
+            </span>
+        </div>
+        <div class="d-flex flex-column gap-2" style="width: 100%;">
+            <div class="px-2">
+                <span class="fs-4">Category</span>
+            </div>
+            <div class="px-2">
+                <span class="fs-6">Wallet Name</span>
+            </div>
+            <div class="px-2">
+                <span class="fs-6">Date</span>
+            </div>
+            <div class="px-2">
+                <p class="fs-4 border-top" style="width: 50%;">£Amount</p>
+            </div>
+        </div>
+    </div>
 </div>
-
+<div class="overlay py-5 transaction-overlay">
+    <div class="d-flex justify-content-center">
+        @{
+            var createTransactionViewModel = new CreateTransactionViewModel
+            {
+                WalletId = Model.Wallet.Id
+            };
+        }
+        @await Html.PartialAsync("AddTransactionPartial", createTransactionViewModel)
+    </div>
+</div>
 <div class="overlay select-category-overlay">
-    <div class="d-flex container flex-column px-0 my-5 border rounded sm-popup-long-display bg-white" style="width: 500px;">
-        <div class="d-flex flex-column container pt-3 gap-3 px-0">
-            <div class="d-flex align-items-center gap-3 px-4">
-                <span class="material-symbols-outlined close-popup">
-                    close
-                </span>
-                <span class="fs-5" style="margin-right: 2rem;">Select Category</span>
-            </div>
-            <div class="mx-auto">
-                <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
-            </div>
-            <div class="d-flex justify-content-center border-bottom pb-1 category-filter">
-                <div class="px-2 hover-item" data-tab="1">
-                    <span>DEBT/LOAN</span>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column px-0 my-5 border rounded sm-popup-long-display bg-white" style="width: 500px;">
+            <div class="d-flex flex-column container pt-3 gap-3 px-0">
+                <div class="d-flex align-items-center gap-3 px-4">
+                    <span class="material-symbols-outlined close-popup">
+                        close
+                    </span>
+                    <span class="fs-5" style="margin-right: 2rem;">Select Category</span>
                 </div>
-                <div class="px-2 hover-item text-success" data-tab="2">
-                    <span>EXPENSE</span>
+                <div class="mx-auto">
+                    <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
                 </div>
-                <div class="px-2 hover-item" data-tab="3">
-                    <span>INCOME</span>
+                <div class="d-flex justify-content-center border-bottom pb-1 category-filter">
+                    <div class="px-2 hover-item" data-tab="1">
+                        <span>DEBT/LOAN</span>
+                    </div>
+                    <div class="px-2 hover-item text-success" data-tab="2">
+                        <span>EXPENSE</span>
+                    </div>
+                    <div class="px-2 hover-item" data-tab="3">
+                        <span>INCOME</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="p-3 px-5 category-items overflow-auto" style="display: none;" data-tab="1">
-            @await Html.PartialAsync("CategoryItemsPartial", Model.DebtsOrLoans)
-        </div>
-        <div class="p-3 px-5 category-items overflow-auto" style="display: block;" data-tab="2">
-            @await Html.PartialAsync("CategoryItemsPartial", Model.Expenses)
-        </div>
-        <div class="p-3 px-5 category-items overflow-auto" style="display: none;" data-tab="3">
-            @await Html.PartialAsync("CategoryItemsPartial", Model.Incomes)
+            <div class="p-3 px-5 category-items overflow-auto" style="display: none;" data-tab="1">
+                @await Html.PartialAsync("CategoryItemsPartial", Model.DebtsOrLoans)
+            </div>
+            <div class="p-3 px-5 category-items overflow-auto" style="display: block;" data-tab="2">
+                @await Html.PartialAsync("CategoryItemsPartial", Model.Expenses)
+            </div>
+            <div class="p-3 px-5 category-items overflow-auto" style="display: none;" data-tab="3">
+                @await Html.PartialAsync("CategoryItemsPartial", Model.Incomes)
+            </div>
         </div>
     </div>
 </div>
 <div class="overlay py-5 select-wallet-overlay">
-    <div class="d-flex container flex-column px-0 my-5 border rounded sm-popup-long-display bg-white" style="width: 500px;">
-        <div class="d-flex flex-column container pt-3 gap-3 px-0 border-bottom">
-            <div class="d-flex align-items-center gap-3 px-4 pb-3">
-                <span class="material-symbols-outlined close-popup">
-                    close
-                </span>
-                <span class="fs-5" style="margin-right: 2rem;">Select Wallet</span>
-            </div>
-        </div>
-        <span class="small-text px-4 py-2 text-secondary">Included in Total</span>
-        <div class="px-4 wallet-items overflow-auto">
-            <div class="row py-2 active-item hover-item">
-                <div class="col-10 justify-content-center">
-                    <span class="fs-6 wallet-name">@Model.Wallet.WalletName</span>
-                    <br>
-                    <span class="small-text wallet-amount">@Model.Wallet.Amount.ToString("C")</span>
-                    <input type="hidden" class="wallet-id" value=@Model.Wallet.Id>
-                </div>
-                <div class="col align-self-center text-center">
-                    <span class="material-symbols-outlined text-success">
-                        done
+    <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column px-0 my-5 border rounded sm-popup-long-display bg-white" style="width: 500px;">
+            <div class="d-flex flex-column container pt-3 gap-3 px-0 border-bottom">
+                <div class="d-flex align-items-center gap-3 px-4 pb-3">
+                    <span class="material-symbols-outlined close-popup">
+                        close
                     </span>
+                    <span class="fs-5" style="margin-right: 2rem;">Select Wallet</span>
+                </div>
+            </div>
+            <span class="small-text px-4 py-2 text-secondary">Included in Total</span>
+            <div class="px-4 wallet-items overflow-auto">
+                <div class="row py-2 active-item hover-item">
+                    <div class="col-10 justify-content-center">
+                        <span class="fs-6 wallet-name">@Model.Wallet.WalletName</span>
+                        <br>
+                        <span class="small-text wallet-amount">@Model.Wallet.Amount.ToString("C")</span>
+                        <input type="hidden" class="wallet-id" value=@Model.Wallet.Id>
+                    </div>
+                    <div class="col align-self-center text-center">
+                        <span class="material-symbols-outlined text-success">
+                            done
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="overlay py-5 select-date-overlay">
-    <div class="d-flex container">
+    <div class="d-flex justify-content-center">
         <div class="mx-auto bg-white" id="datepicker"></div>
     </div>
 </div>

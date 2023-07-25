@@ -8,65 +8,65 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AspNetCoreExpenseTracker
 build_property.RootNamespace = AspNetCoreExpenseTracker
-build_property.ProjectDir = C:\Users\Mujahid\Documents\Development\AspNetCoreExpenseTracker\aspnetcoreexpensetracker\
+build_property.ProjectDir = c:\Users\Mujahid\Documents\Development\AspNetCoreExpenseTracker\AspNetCoreExpenseTracker\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Mujahid\Documents\Development\AspNetCoreExpenseTracker\aspnetcoreexpensetracker
+build_property.MSBuildProjectDirectory = c:\Users\Mujahid\Documents\Development\AspNetCoreExpenseTracker\AspNetCoreExpenseTracker
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Areas/Identity/Pages/_ViewStart.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Home/Index.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Home/Privacy.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/MyWallets/Index.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/MyWallets/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlXYWxsZXRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Shared/AddTransactionPartial.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Shared/AddTransactionPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkZFRyYW5zYWN0aW9uUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Shared/AddWalletPartial.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Shared/AddWalletPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkZFdhbGxldFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Shared/CategoryItemsPartial.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Shared/CategoryItemsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENhdGVnb3J5SXRlbXNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Shared/Error.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Shared/NavbarPartial.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Shared/NavbarPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmJhclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Shared/_LoginPartial.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/_ViewImports.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/_ViewStart.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/aspnetcoreexpensetracker/Views/Shared/_Layout.cshtml]
+[c:/Users/Mujahid/Documents/Development/AspNetCoreExpenseTracker/AspNetCoreExpenseTracker/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-s5ru8ldkq0

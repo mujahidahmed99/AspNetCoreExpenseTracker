@@ -10,45 +10,44 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css">
 </head>
-<body class="bg-light">
-    <main>   
-        <div class="d-flex flex-column flex-shrink-0 text-white bg-white" style="width: 5rem; position: fixed; height: 100vh">
-            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-                <li class="nav-item border-bottom" style="height: 54px;">
-                    <a class="nav-link p-2 rounded-0" href="#">
-                        <img src="~/images/menu.svg"></img>
-                    </a>
-                </li>
-                <li class="nav-item border-bottom">
-                    <a class="nav-link active p-2 rounded-0" href="#">
-                        <img src="~/images/account_balance_wallet.svg"></img>
-                        </br>
-                        <span class="sidebar-text">Transaction</span>
-                    </a>
-                </li>
-                <li class="nav-item border-bottom">
-                    <a class="nav-link p-2 rounded-0" href="#">
-                        <img src="~/images/collections_bookmark.svg"></img>
-                        </br>
-                        <span class="sidebar-text">Report</span>
-                    </a>
-                </li>
-                <li class="nav-item border-bottom">
-                    <a class="nav-link p-2 rounded-0" href="#">
-                        <img src="~/images/payments.svg"></img>
-                        </br>
-                        <span class="sidebar-text">Budget</span>
-                    </a>
-                </li>
-            </ul>
-            </br>
-        </div>
-        <div class="d-flex container justify-content-center pt-5 mt-5">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
-    </main>
+<body class="bg-light d-flex flex-column"> 
+    <div class="d-flex flex-column flex-shrink-0 text-white bg-white" style="width: 5rem; position: fixed; height: 100vh; top: 0;">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item border-bottom" style="height: 54px;">
+                <a class="nav-link p-2 rounded-0" href="#">
+                    <img src="~/images/menu.svg"></img>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a class="nav-link active p-2 rounded-0" href="#">
+                    <img src="~/images/account_balance_wallet.svg"></img>
+                    </br>
+                    <span class="sidebar-text">Transaction</span>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a class="nav-link p-2 rounded-0" href="#">
+                    <img src="~/images/collections_bookmark.svg"></img>
+                    </br>
+                    <span class="sidebar-text">Report</span>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a class="nav-link p-2 rounded-0" href="#">
+                    <img src="~/images/payments.svg"></img>
+                    </br>
+                    <span class="sidebar-text">Budget</span>
+                </a>
+            </li>
+        </ul>
+        </br>
+    </div>
+    <div class="d-flex main-content-container">
+        <main role="main" class="pb-3 d-flex justify-content-center gap-3">
+            @RenderBody()
+        </main>
+    </div>
+    
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

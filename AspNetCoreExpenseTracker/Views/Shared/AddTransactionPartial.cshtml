@@ -1,10 +1,10 @@
 @model CreateTransactionViewModel
 
-<div class="d-flex container flex-column my-5 border rounded popup-display bg-white">
+<div class="d-flex flex-column my-5 border rounded popup-display bg-white">
     <p class="fs-5 m-3 border-bottom">Add transaction</p>
-    <form id="TransactionForm" class="m-3 form-validation" style="height: 100%;">
+    <form id="TransactionForm" class="m-3 form-validation">
         @Html.AntiForgeryToken()
-        <div class="d-flex flex-column gap-3 mb-4" style="height: 75%;">
+        <div class="d-flex flex-column gap-3 mb-4">
             <div class="row">
                 <div class="col">
                     <div class="d-flex flex-column border rounded pt-1 pb-2 px-3" id="SelectWallet" style="height: 100%; cursor:pointer;">

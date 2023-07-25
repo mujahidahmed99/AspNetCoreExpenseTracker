@@ -2,7 +2,8 @@ $(document).ready(function() {
 
     var walletCount = $('.wallet-overlay').data('walletcount');
 
-    if(walletCount >= 1) {
+    if(walletCount < 1) {
+        console.log(walletCount)
         $('.wallet-overlay').show();
     }
 

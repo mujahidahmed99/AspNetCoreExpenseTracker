@@ -64,7 +64,6 @@ $(document).ready(function(){
 
     $('#TransactionForm').submit(function(e)
     {
-        debugger;
         e.preventDefault();
         var formData = $(this).serialize();
         console.log(formData);
@@ -74,15 +73,14 @@ $(document).ready(function(){
             url: "home/AddTransaction",
             data: formData,
             success: function (response) {
-                console.log(response);
+                $('.transaction-overlay').hide();
+                getAllTransactions();
             },
             error: function(xhr, status, error) {
                 console.error(error);
             }
         });
     });
-
-    getAllTransactions();
 });
 
 function displayTab(tabValue) {
@@ -111,18 +109,20 @@ function getAllTransactions() {
                 html += '<li class="list-group-item border-0 d-flex justify-content-between border-bottom px-4">';
                 html += '<div class="d-flex flex-column">';
                 html += '<span class="fs-5">' + group.categoryName + '</span>';
-                html += '<span>' + group.transactions.length + ' transactions</span>';
+                html += '<span>' + group.transactions.length + ' transactions' + '</span>';
                 html += '</div>';
-                var totalAmount = group.totalAmount >= 0 ? '+' + group.totalAmount : group.totalAmount;
-                html += '<span style="align-self: center;" class="amount">' + totalAmount.toLocaleString(undefined, { style: 'currency', currency: 'GBP' }) + '</span>';
+                var totalAmount = group.totalAmount >= 0 ? '+' + group.totalAmount.toLocaleString(undefined, { style: 'currency', currency: 'GBP' }) :
+                                    group.totalAmount.toLocaleString(undefined, { style: 'currency', currency: 'GBP' });
+                html += '<span style="align-self: center;" class="amount">' + totalAmount + '</span>';
                 html += '</li>';
                 for(var j = 0; j < group.transactions.length; j++)
                 {
                     var transaction = group.transactions[j];
                     html += '<li class="list-group-item border-0 d-flex justify-content-between py-3 px-4">';
                     html += '<span>' + moment(transaction.date).format("DD dddd, MMMM YYYY") + '</span>';
-                    var amount = transaction.amount >= 0 ? '+' + transaction.amount : transaction.amount;
-                    html += '<span class="amount">' + amount.toLocaleString(undefined, { style: 'currency', currency: 'GBP' }) + '</span>';
+                    var amount = transaction.amount >= 0 ? '+' + transaction.amount.toLocaleString(undefined, { style: 'currency', currency: 'GBP' }) : 
+                                    transaction.amount.toLocaleString(undefined, { style: 'currency', currency: 'GBP' });
+                    html += '<span class="amount">' + amount + '</span>';
                     html += '</li>';
                 }
             html += '</ul>';
